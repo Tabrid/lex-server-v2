@@ -6,7 +6,6 @@ import morgan from "morgan";
 import path, { join } from "path";
 import connectDB from "./src/configs/databaseConfigs.js";
 import serviceRoutes from "./src/routes/serviceRoutes.js"
-import userRoutes from "./src/routes/userRoutes.js"
 import blogRoutes from "./src/routes/blogRoutes.js"
 import testimonialRoutes from "./src/routes/testimonialRoutes.js"
 import reviewRoutes from "./src/routes/reviewRoutes.js"
@@ -28,12 +27,11 @@ app.use(morgan("dev"));
 
 // Routes
 app.get("/", (req, res) => {
-  return res.send("Lex Official Server Running...!!");
+  return res.send("Lex Official Server Running...!");
 });
 
 // users routes
 app.use("/api/v1/services/", serviceRoutes);
-app.use('/api/v1', userRoutes);
 app.use("/api/v1/blogs", blogRoutes);
 app.use("/api/v1/testimonials", testimonialRoutes);
 app.use("/api/v1/reviews", reviewRoutes);
@@ -46,7 +44,7 @@ app.use("/api/v1/bookmarks", bookmarkRoutes);
 app.use("/api/v1/packages", priceRoutes);
 
 
-// Handle Not valid routes
+// Handle invalid routes
 app.use("*", (req, res) => {
   return res.status(404).send("Invalid Route!!");
 });
