@@ -13,7 +13,7 @@ import priceRoutes from "./src/routes/priceRoutes.js"
 import  lawyerRoutes from "./src/routes/lawyerRoutes.js"
 import  lawDataRoutes from "./src/routes/lawDataRoutes.js"
 import bookmarkRoutes from "./src/routes/bookmarkRoutes.js"
-
+import  userAccountRoutes from "./src/routes/userAccountRoutes.js"
 // Application
 const app = express();
 dotenv.config();
@@ -36,11 +36,9 @@ app.use("/api/v1/blogs", blogRoutes);
 app.use("/api/v1/testimonials", testimonialRoutes);
 app.use("/api/v1/reviews", reviewRoutes);
 app.use("/api/v1/lawyers", lawyerRoutes);
-
+app.use("/api/v1/users", userAccountRoutes);
 app.use("/api/v1/lawData", lawDataRoutes);
-
 app.use("/api/v1/bookmarks", bookmarkRoutes);
-
 app.use("/api/v1/packages", priceRoutes);
 
 
