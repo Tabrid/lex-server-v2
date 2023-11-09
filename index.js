@@ -14,6 +14,7 @@ import  lawyerRoutes from "./src/routes/lawyerRoutes.js"
 import  lawDataRoutes from "./src/routes/lawDataRoutes.js"
 import bookmarkRoutes from "./src/routes/bookmarkRoutes.js"
 import  userAccountRoutes from "./src/routes/userAccountRoutes.js"
+import appointmentRoutes from "./src/routes/AppointmentRoutes.js"
 // Application
 const app = express();
 dotenv.config();
@@ -40,6 +41,7 @@ app.use("/api/v1/users", userAccountRoutes);
 app.use("/api/v1/lawData", lawDataRoutes);
 app.use("/api/v1/bookmarks", bookmarkRoutes);
 app.use("/api/v1/packages", priceRoutes);
+app.use("/api/v1/appointments", appointmentRoutes);
 
 
 // Handle invalid routes

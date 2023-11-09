@@ -1,16 +1,28 @@
 import express from "express";
 import {
   createUser,
-  updateUser,
-  deleteUser,
   getUserByEmail,
-} from "../controllers/UserControllers.js"; // Import your controller functions
+  getUserById,
+  getAllUsers,
+  isAdminByEmail,
+  isUserByEmail,
+  isLawyerByEmail
+} from "../controllers/UserControllers.js";
 
 const router = express.Router();
 
-router.post("/create", createUser);
-router.put("/update/:email", updateUser);
-router.delete("/delete/:email", deleteUser);
-router.get("/get/:email", getUserByEmail);
+// Create a new user
+router.post("/users", createUser);
+
+// Get a user by email
+router.get("/users/email/:email", getUserByEmail);
+
+// Get a user by ID
+router.get("/users/:userId", getUserById);
+// Get all users
+router.get("/users", getAllUsers);
+router.get("/users/admin/:email", isAdminByEmail);
+router.get("/users/user/:email", isUserByEmail); 
+router.get("/users/lawyer/:email", isLawyerByEmail);
 
 export default router;
